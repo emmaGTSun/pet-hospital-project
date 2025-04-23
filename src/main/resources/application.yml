@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+# Database Configuration.
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin123
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b1&allowPublicKeyRetrieval=true
+
+  main:
+    allow-circular-references: true
+
+# Configure MyBatis entities and XML mappings.
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+
+#pagination
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.AppointmentDao">
+    <select id="findBySearch" resultType="com.example.entity.Appointment">
+        select * from `appointment`
+        <where>
+            <if test="params != null and params.userId != null">
+                and appointment.userId = #{ params.userId }
+            </if>
+        </where>
+        order by appointment.id DESC
+    </select>
+</mapper>

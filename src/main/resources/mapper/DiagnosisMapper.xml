@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.DiagnosisDao">
+    <select id="findBySearch" resultType="com.example.entity.Diagnosis">
+--         select a.*, b.name AS typeName from diagnosis AS a
+--         left join type AS b on a.typeId = b.id
+        select * from `diagnosis`
+        <where>
+            <if test="params != null and params.name != null and params.name != ''">
+                and diagnosis.name like concat('%', #{ params.name }, '%')
+            </if>
+            <if test="params != null and params.content != null and params.content != ''">
+                and diagnosis.content like concat('%', #{ params.content }, '%')
+            </if>
+        </where>
+        order by diagnosis.id DESC
+    </select>
+</mapper>
