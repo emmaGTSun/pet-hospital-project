@@ -1,5 +1,4 @@
 # Pet Hospital Management System
-C21020029 Guangtian Sun
 
 ## Project Introduction
 The Pet Hospital Management System is an advanced, user-friendly software solution designed for pet hospitals. 
